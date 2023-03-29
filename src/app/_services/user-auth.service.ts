@@ -19,16 +19,25 @@ export class UserAuthService {
     localStorage.setItem('jwtToken', jwtToken);
   }
 
-  public getToken():string{
+  public getToken(): string {
     return localStorage.getItem('jwtToken');
   }
 
-  public clear(){
+  public clear() {
     localStorage.clear();
   }
 
-  public isLoggedIn(){
+  public isLoggedIn() {
     return this.getRoles() && this.getToken();
   }
 
+  public isAdmin() {
+    const roles: any[] = this.getRoles();
+    return roles[0].roleName === 'Admin';
+  }
+
+  public isUser() {
+    const roles: any[] = this.getRoles();
+    return roles[0].roleName === 'User';
+  }
 }

@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private userAuthService: UserAuthService,
     private router: Router,
-    protected userService:UserService
+    protected userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +26,14 @@ export class HeaderComponent implements OnInit {
   public logout() {
     this.userAuthService.clear();
     this.router.navigate(['/']);
+  }
+
+  public isAdmin() {
+    return this.userAuthService.isAdmin();
+  }
+
+  public isUser() {
+    return this.userAuthService.isUser();
   }
 
 }

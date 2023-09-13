@@ -14,6 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AddNewProductComponent implements OnInit {
 
   product: Product = {
+    productId: 0,
     productName: "",
     productDescription: "",
     productDiscountedPrice: 0,

@@ -28,7 +28,8 @@
 
                     <div class="d-flex justify-content-end">
                         <button mat-stroked-button color="primary" style="margin-right: 3px;">Clear</button>
-                        <button mat-stroked-button color="primary" type="submit">Add Product</button>
+                        <button mat-stroked-button color="primary" type="submit" *ngIf="isNewProduct">Add Product</button>
+                        <button mat-stroked-button color="primary" type="submit" *ngIf="!isNewProduct">Update Product</button>
                     </div>
                 </form>
             </div>
@@ -39,14 +40,15 @@
                     <div class="dropzone" appDrag (files)="fileDropped($event)">
                         <div class="text-wrapper">
                             <div class="centered">
-                                Drag and drop your file or 
+                                Drag and drop your file or
                                 <a (click)="selectFile.click()" class="browse-button">browse</a>
                                 a file
                             </div>
                         </div>
                     </div>
 
-                    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)" style="display: none;">
+                    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)"
+                        style="display: none;">
                 </div>
                 <div class="mt-5">
                     <div class="row">
